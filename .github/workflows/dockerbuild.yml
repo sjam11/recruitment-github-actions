@@ -1,4 +1,4 @@
-name: Java CI with Maven
+name: docker build cmd
 
 on:
   push:
@@ -19,9 +19,9 @@ jobs:
         java-version: '11'
         distribution: 'temurin'
         cache: maven
-    - name: Build with Maven
+    - name: Build docker
       env: 
         SPRING_DATASOURCE_URL: ${{ secrets.SPRING_DATASOURCE_URL }}
         SPRING_DATASOURCE_USERNAME: ${{ secrets.SPRING_DATASOURCE_USERNAME }}
         SPRING_DATASOURCE_PASSWORD: ${{ secrets.SPRING_DATASOURCE_PASSWORD }}
-      run: docker build . -t sjam16/jenkins-exjobb
+      run: docker build . -t sjam16/github-actions-exjobb
